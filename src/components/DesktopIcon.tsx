@@ -1,24 +1,31 @@
-'use client'
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { IconType } from 'react-icons';
+import { useDesktop } from '../contexts/DesktopContext';
 
 interface DesktopIconProps {
+  id: string;
   icon: IconType;
   label: string;
 }
 
-const DesktopIcon: React.FC<DesktopIconProps> = ({ icon: Icon, label }) => {
-  const initialPosition = JSON.parse(localStorage.getItem(label) || '{"x":0,"y":0}');
-  const [position, setPosition] = useState<{ x: number; y: number }>(initialPosition);
+const DesktopIcon: React.FC<DesktopIconProps> = ({ id, icon: Icon, label }) => {
+  const { icons, moveIcon } = useDesktop();
+  const iconPosition = icons.find(icon => icon.id === id);
+  if (!iconPosition) return null;
 
   const handleStop = (e: DraggableEvent, data: DraggableData) => {
-    setPosition({ x: data.x, y: data.y });
-    localStorage.setItem(label, JSON.stringify({ x: data.x, y: data.y }));
+    const newX = Math.round(data.x / 100);
+    const newY = Math.round(data.y / 100);
+    moveIcon(id, { x: newX, y: newY });
   };
 
   return (
-    <Draggable position={position} onStop={handleStop}>
+    <Draggable
+      position={{ x: iconPosition.position.x * 100, y: iconPosition.position.y * 100 }}
+      grid={[100, 100]}
+      onStop={handleStop}
+    >
       <div className="flex flex-col items-center w-20 m-2 cursor-pointer">
         <Icon className="text-4xl" />
         <span className="text-sm text-center">{label}</span>

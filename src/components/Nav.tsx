@@ -11,7 +11,6 @@ const Nav: React.FC = () => {
   return (
     <div className="w-full fixed bottom-0 bg-gray-800 text-white flex justify-between items-center px-4 py-2">
       <div className="flex-1 flex justify-center space-x-4">
-        {/* Adicione os ícones centrais aqui */}
         <FaWifi className="text-2xl" />
         <FaVolumeUp className="text-2xl" />
       </div>

@@ -38,3 +38,15 @@
 .text-center {
   text-align: center;
 }
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.relative {
+  position: relative;
+}
