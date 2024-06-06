@@ -1,9 +1,14 @@
+'use client'
 import React from 'react';
+import DesktopIcon from './DesktopIcon';
+import { FaFolder, FaFile, FaTrash } from 'react-icons/fa';
 
 const Hero: React.FC = () => {
   return (
-    <div className="w-full h-screen bg-cover bg-center" style={{ backgroundImage: `url('/background.jpg')` }}>
-      {/* Outros conteúdos podem ser adicionados aqui no futuro */}
+    <div className="w-full h-screen bg-cover bg-center relative" style={{ backgroundImage: `url('/bg.jpg')` }}>
+      <DesktopIcon icon={FaFolder} label="Pasta" />
+      <DesktopIcon icon={FaFile} label="Documento" />
+      <DesktopIcon icon={FaTrash} label="Lixeira" />
     </div>
   );
 };
