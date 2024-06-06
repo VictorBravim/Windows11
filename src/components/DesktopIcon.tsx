@@ -25,7 +25,7 @@ const DesktopIcon: React.FC<DesktopIconProps> = ({ id, icon: Icon }) => {
       grid={[100, 100]}
       onStop={handleStop}
     >
-      <div className="flex items-center justify-center w-24 h-24">
+      <div className="flex items-center justify-center w-24 h-24 cursor-pointer">
         <Icon className="text-4xl" />
       </div>
     </Draggable>
