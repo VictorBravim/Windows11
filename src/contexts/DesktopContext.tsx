@@ -25,10 +25,22 @@ export const DesktopProvider: React.FC<DesktopProviderProps> = ({ children }) =>
 
   const moveIcon = (id: string, newPosition: { x: number, y: number }) => {
     setIcons(prevIcons => {
-      const newIcons = prevIcons.map(icon =>
-        icon.id === id ? { ...icon, position: newPosition } : icon
-      );
-      return newIcons;
+      const targetIcon = prevIcons.find(icon => icon.position.x === newPosition.x && icon.position.y === newPosition.y);
+      if (targetIcon) {
+        const currentIcon = prevIcons.find(icon => icon.id === id);
+        if (currentIcon) {
+          return prevIcons.map(icon => {
+            if (icon.id === id) {
+              return { ...icon, position: newPosition };
+            } else if (icon.id === targetIcon.id) {
+              return { ...icon, position: currentIcon.position };
+            } else {
+              return icon;
+            }
+          });
+        }
+      }
+      return prevIcons.map(icon => (icon.id === id ? { ...icon, position: newPosition } : icon));
     });
   };
 

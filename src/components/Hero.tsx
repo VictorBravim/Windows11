@@ -8,9 +8,9 @@ const Hero: React.FC = () => {
   return (
     <DesktopProvider>
       <div className="w-full h-screen bg-cover bg-center relative" style={{ backgroundImage: `url('/bg.jpg')` }}>
-        <DesktopIcon id="folder" icon={FaFolder} label="Pasta" />
-        <DesktopIcon id="document" icon={FaFile} label="Documento" />
-        <DesktopIcon id="trash" icon={FaTrash} label="Lixeira" />
+        <DesktopIcon id="folder" icon={FaFolder} />
+        <DesktopIcon id="document" icon={FaFile} />
+        <DesktopIcon id="trash" icon={FaTrash} />
       </div>
     </DesktopProvider>
   );

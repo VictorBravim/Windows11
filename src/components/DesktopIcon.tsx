@@ -6,10 +6,9 @@ import { useDesktop } from '../contexts/DesktopContext';
 interface DesktopIconProps {
   id: string;
   icon: IconType;
-  label: string;
 }
 
-const DesktopIcon: React.FC<DesktopIconProps> = ({ id, icon: Icon, label }) => {
+const DesktopIcon: React.FC<DesktopIconProps> = ({ id, icon: Icon }) => {
   const { icons, moveIcon } = useDesktop();
   const iconPosition = icons.find(icon => icon.id === id);
   if (!iconPosition) return null;
@@ -26,9 +25,8 @@ const DesktopIcon: React.FC<DesktopIconProps> = ({ id, icon: Icon, label }) => {
       grid={[100, 100]}
       onStop={handleStop}
     >
-      <div className="flex flex-col items-center w-20 m-2 cursor-pointer">
+      <div className="flex items-center justify-center w-24 h-24">
         <Icon className="text-4xl" />
-        <span className="text-sm text-center">{label}</span>
       </div>
     </Draggable>
   );
