@@ -1,5 +1,6 @@
 # 🪟 Windows11
-![image](https://github.com/VictorBravim/InvisVR/assets/122113588/1a1cc9e8-3360-4a97-8479-cb28f9f6bdb5)
+
+![image](https://github.com/VictorBravim/Windows11/assets/122113588/78c70116-abf5-4b4b-b167-1b5a36558845)
 
 ## 🚀 Overview 
 
