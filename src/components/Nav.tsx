@@ -19,7 +19,7 @@ import nota from '@/assets/nota.png';
 import security from '@/assets/security.png';
 import calculadora from '@/assets/calculadora.png';
 import paint from '@/assets/paint.png';
-import victor from '@/assets/victor.png'
+import victor from '@/assets/victor.png';
 
 const Nav: React.FC = () => {
     const currentDate = new Date();
@@ -37,6 +37,11 @@ const Nav: React.FC = () => {
         if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
             setMenuOpen(false);
         }
+    };
+
+    const openCalculator = () => {
+        window.open('calc://', '_blank');
+        setMenuOpen(false);
     };
 
     useEffect(() => {
@@ -93,7 +98,7 @@ const Nav: React.FC = () => {
                             <div className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md">
                                 <Image src={security} alt="security" width={50} height={50} />
                             </div>
-                            <div className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md">
+                            <div onClick={openCalculator} className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md cursor-pointer">
                                 <Image src={calculadora} alt="calculadora" width={50} height={50} />
                             </div>
                             <div className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md">
