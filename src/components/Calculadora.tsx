@@ -54,8 +54,8 @@ const Calculadora: React.FC = () => {
                 {['7', '8', '9', 'C',
                     '4', '5', '6', '/',
                     '1', '2', '3', '*',
-                    '0', '.', '=', '+',
-                    '-'].map((btn, index) => (
+                    '0', '.', '-', '+',
+                    '='].map((btn, index) => (
                         <button
                             key={index}
                             className={btn === '=' || btn === 'C' ? specialButtonClass : buttonClass}
