@@ -20,6 +20,7 @@ import security from '@/assets/security.png';
 import calculadora from '@/assets/calculadora.png';
 import paint from '@/assets/paint.png';
 import victor from '@/assets/victor.png';
+import Calculadora from '@/components/Calculadora';
 
 const Nav: React.FC = () => {
     const currentDate = new Date();
@@ -27,11 +28,30 @@ const Nav: React.FC = () => {
     const currentTime = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showCalculator, setShowCalculator] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
 
     const handleMenuToggle = () => {
         setMenuOpen(!menuOpen);
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (showCalculator && !menuRef.current?.contains(event.target as Node)) {
+                setShowCalculator(false);
+            }
+        };
+
+        if (showCalculator) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showCalculator]);
 
     const handleClickOutside = (event: MouseEvent) => {
         if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -39,8 +59,8 @@ const Nav: React.FC = () => {
         }
     };
 
-    const openCalculator = () => {
-        window.open('calc://', '_blank');
+    const handleCalculatorClick = () => {
+        setShowCalculator(true);
         setMenuOpen(false);
     };
 
@@ -54,10 +74,18 @@ const Nav: React.FC = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [menuOpen]);
+    }, [menuOpen, showCalculator]);
 
     return (
         <div className="w-full fixed bottom-0 bg-gray-800 text-white flex justify-between items-center px-4 py-1">
+            {showCalculator && (
+                <div className="fixed inset-0 flex justify-center items-center bg-transparent z-40">
+                    <div className="relative">
+                        <Calculadora />
+                    </div>
+                </div>
+            )}
+
             {menuOpen && (
                 <div className="fixed bottom-0 left-0 w-full h-full bg-transparent flex justify-center items-center">
                     <div ref={menuRef} className="bg-black bg-opacity-50 backdrop-blur-sm p-4 rounded-lg shadow-lg flex flex-col items-center">
@@ -98,7 +126,7 @@ const Nav: React.FC = () => {
                             <div className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md">
                                 <Image src={security} alt="security" width={50} height={50} />
                             </div>
-                            <div onClick={openCalculator} className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md cursor-pointer">
+                            <div onClick={handleCalculatorClick} className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md cursor-pointer">
                                 <Image src={calculadora} alt="calculadora" width={50} height={50} />
                             </div>
                             <div className="flex items-center justify-center w-20 h-20 hover:bg-gray-900 hover:bg-opacity-50 rounded-md">
