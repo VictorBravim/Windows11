@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import { IoWifi, IoVolumeHighOutline } from "react-icons/io5";
-import { GoBell } from "react-icons/go";
-import { IoIosArrowUp } from "react-icons/io";
+import { GoBell, GoGear } from "react-icons/go";
+import { IoIosArrowUp, IoIosPower } from "react-icons/io";
 import Image from 'next/image';
 import windows from '@/assets/menu.png';
 import store from '@/assets/store.png';
@@ -25,13 +25,39 @@ const Nav: React.FC = () => {
     return (
         <div className="w-full fixed bottom-0 bg-gray-800 text-white flex justify-between items-center px-4 py-1">
             {menuOpen && (
-                <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-                    {/* Conteúdo do menu */}
-                    <div className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center">
-                        {/* Barra de pesquisa */}
+                <div className="fixed bottom-0 left-0 w-full h-full bg-transparent flex justify-center items-center" onClick={handleMenuToggle}>
+                    <div className="bg-black bg-opacity-50 p-4 rounded-lg shadow-lg flex flex-col items-center">
                         <input type="text" placeholder="Pesquisar" className="w-full border border-gray-300 rounded-md p-2 mb-4" />
-
-                        {/* Aqui você pode adicionar mais conteúdo conforme necessário */}
+                        <div className="grid grid-cols-3 gap-4">
+                            <div className="w-20 h-20">
+                                <Image src={windows} alt="Windows" width={80} height={80} />
+                            </div>
+                            <div className="w-20 h-20">
+                                <Image src={store} alt="Store" width={80} height={80} />
+                            </div>
+                            <div className="w-20 h-20">
+                                <Image src={archive} alt="Archive" width={80} height={80} />
+                            </div>
+                            <div className="w-20 h-20">
+                                <Image src={google} alt="Google" width={80} height={80} />
+                            </div>
+                            <div className="w-20 h-20">
+                                <Image src={vscode} alt="VSCode" width={80} height={80} />
+                            </div>
+                            <div className="w-20 h-20">
+                                <Image src={clima} alt="Clima" width={80} height={80} />
+                            </div>
+                        </div>
+                        <div className="flex items-center justify-center mt-4">
+                            <div className="flex items-center">
+                                <Image src={windows} alt="Profile" width={40} height={40} />
+                                <span className="ml-2">Victor Bravim</span>
+                            </div>
+                            <div className="flex items-center ml-4">
+                            <GoGear />
+                            <IoIosPower />
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
