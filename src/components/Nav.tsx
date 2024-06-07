@@ -6,6 +6,7 @@ import store from '@/assets/store.png';
 import archive from '@/assets/archive.png';
 import google from '@/assets/google.png';
 import vscode from '@/assets/vscode.png';
+import clima from '@/assets/clima.png';
 
 const Nav: React.FC = () => {
     const currentDate = new Date().toLocaleString('pt-BR', {
@@ -18,9 +19,7 @@ const Nav: React.FC = () => {
     return (
         <div className="w-full fixed bottom-0 bg-gray-800 text-white flex justify-between items-center px-4 py-2">
             <div className="flex items-center space-x-2 pr-20">
-                <button className="bg-gray-900 rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <Image src={windows} alt="Windows Menu" width={32} height={32} />
-                </button>
+                    <Image src={clima} alt="Windows Menu" width={100} height={32} />
             </div>
             <div className="flex-1 flex justify-center space-x-4">
                 <button className="bg-transparent hover:bg-gray-900 rounded-md p-1 focus:outline-none focus:ring-2 focus:ring-blue-500">

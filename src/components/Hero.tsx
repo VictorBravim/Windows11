@@ -3,8 +3,7 @@ import Image from 'next/image';
 import trash from '@/assets/trash.png';
 
 const Hero: React.FC = () => {
-  // Configurar uma grade 13x13
-  const gridItems = new Array(169).fill(0); // 13 * 13 = 169
+  const gridItems = new Array(169).fill(0);
 
   return (
     <div className="w-full h-screen bg-cover bg-center" style={{ backgroundImage: `url('/bg.jpg')` }}>
