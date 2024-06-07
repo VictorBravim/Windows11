@@ -15,6 +15,9 @@ const config: Config = {
       gridTemplateColumns: {
         '18': 'repeat(18, minmax(0, 1fr))',
       },
+      fontFamily: {
+        'sans': ['Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+      },
     },
   },
   plugins: [],
