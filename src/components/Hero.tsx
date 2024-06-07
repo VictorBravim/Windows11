@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
             {gridItems.map((_, index) => (
               <div key={index} className="flex items-center justify-center bg-transparent h-full w-full">
                 {index === 0 && (
-                  <Image src={trash} alt="Ícone da Lixeira" className="h-16 w-16" />
+                  <Image src={trash} alt="Ícone da Lixeira" className="h-14 w-14 hover:bg-gray-700 hover:bg-opacity-50 rounded-lg" />
                 )}
               </div>
             ))}
