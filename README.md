@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🪟 Windows11
+![image](https://github.com/VictorBravim/InvisVR/assets/122113588/1a1cc9e8-3360-4a97-8479-cb28f9f6bdb5)
 
-## Getting Started
+## 🚀 Overview 
 
-First, run the development server:
+This project is a website that serves as a clone of the Windows 11 operating system interface. It replicates the look and feel of Windows 11, providing users with a familiar desktop experience directly in their web browser. The website includes components such as a navigation bar, desktop area, lock screen, and various applications, closely resembling the functionality of the Windows 11 operating system.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📋 Requirements
+
+- Node.js (v12 or later)
+- npm (v6 or later) or yarn (v1 or later)
+
+## 🔧 Installation
+
+1. Clone the repository:
+
+```
+git clone https://github.com/VictorBravim/Windows11.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd Windows11
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install the dependencies:
 
-## Learn More
+```
+npm install
+or
+yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🛠️ Project Structure
 
-## Deploy on Vercel
+- Nav.tsx: The Nav.tsx file is responsible for rendering the Windows-like navigation bar. It contains icons and functionalities to access applications and system resources.
+- Hero.tsx: The Hero.tsx file simulates the desktop area where users can interact with various applications and widgets. It serves as the main workspace for the user's tasks and activities.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- LockScreen.tsx: The LockScreen.tsx file represents the initial screen of the Windows operating system, where users are prompted to log in or unlock their devices. It provides security and access control to the system.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## 📄 License
+
+- This project is licensed under the [MIT License](LICENSE).
