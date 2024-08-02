@@ -16,7 +16,7 @@ This project is a website that serves as a clone of the Windows 11 operating sys
 1. Clone the repository:
 
 ```
-git clone https://github.com/VictorBravim/Windows11.git
+git clone https://github.com/VictorBravim/Windows11.git 
 ```
 
 2. Navigate to the project directory:
